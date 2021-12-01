@@ -1,6 +1,6 @@
 # Ansible Role: ONLYOFFICE Desktop Editors
 
-[![Build Status](https://travis-ci.org/ONLYOFFICE/ansible-role-documentserver.svg?branch=master)](https://travis-ci.org/ONLYOFFICE/ansible-role-documentserver)
+[![Build Status](https://travis-ci.org/ONLYOFFICE/ansible-role-desktopeditors.svg?branch=master)](https://travis-ci.org/ONLYOFFICE/ansible-role-desktopeditors)
 
 Installs and configures ONLYOFFICE Desktop Editors on RHEL/CentOS or Debian/Ubuntu servers.
 
