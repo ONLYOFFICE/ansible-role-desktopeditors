@@ -1,0 +1,17 @@
+---
+  - name: Add onlyoffice repo
+    yum:
+      name: "{{ onlyoffice_repo }}"
+    become: yes
+
+  - name: Install epel repo
+    yum: 
+      name: epel-release
+    become: yes
+
+  - name: Install documentserver
+    yum:
+      name: "{{ package_name }}"
+      update_cache: yes
+      state: latest
+    become: yes

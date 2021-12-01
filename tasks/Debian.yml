@@ -1,0 +1,28 @@
+---
+  - name: Add onlyoffice gpg keys
+    apt_key:
+      keyserver: "keyserver.ubuntu.com"
+      id: "CB2DE8E5"
+      state: present
+    become: yes
+
+  - name: Add onlyoffice repositories
+    apt_repository:
+      repo: "{{ package_repo }}"
+      state: present
+    become: yes
+
+  - name: Add debian contrib repositories
+    apt_repository:
+      repo: "{{ debian_repo }}"
+      state: present
+    when: ansible_distribution == "Debian"
+    become: yes
+
+
+  - name: Install documentserver
+    apt: 
+      name: "{{ package_name }}"
+      update_cache: yes
+      state: latest
+    become: yes
