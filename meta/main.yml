@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Anton Rychenkov
+  description: "ONLYOFFICE Desktop Editors is a free desktop version of online editors does not require constant connection to the internet and can work with offline files on your computer"
+  company: "Ascensio System SIA"
+  license: "GNU AGPL v3.0"
+  min_ansible_version: 2.3
+  platforms:
+    - name: EL
+      versions:
+      - 8
+      - 7
+    - name: Ubuntu
+      versions:
+      - focal
+    - name: Debian
+      versions:
+      - buster
+  galaxy_tags:
+    - application
+    - documents
+    - onlyoffice
+
