@@ -1,0 +1,16 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: localhost
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+lint: |
+  set -euxo pipefail
+  yamllint .
+  ansible-lint
+  flake8

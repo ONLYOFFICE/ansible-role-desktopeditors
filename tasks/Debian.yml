@@ -19,8 +19,7 @@
     when: ansible_distribution == "Debian"
     become: yes
 
-
-  - name: Install documentserver
+  - name: Install desktopeditors
     apt: 
       name: "{{ package_name }}"
       update_cache: yes

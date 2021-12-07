@@ -1,0 +1,11 @@
+---
+# This is an example playbook to execute Ansible tests.
+- hosts: all
+  remote_user: root
+  become: true
+  tasks:
+    - name: Descktopeditors exist check
+      stat:
+        path: /bin/desktopeditors111
+      register: bass_result
+      changed_when: bass_result.stat.exists == False
