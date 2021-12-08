@@ -14,7 +14,7 @@ scenario:
   test_sequence:
     - lint
 lint: |
-  set -euxo pipefail
+  set -e
   yamllint .
-  ansible-lint
+  ansible-lint .
   flake8
