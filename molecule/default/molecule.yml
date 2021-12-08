@@ -9,6 +9,10 @@ provisioner:
   name: ansible
 verifier:
   name: ansible
+scenario:
+  name: default
+  test_sequence:
+    - lint
 lint: |
   set -euxo pipefail
   yamllint .

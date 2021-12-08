@@ -1,5 +1,5 @@
 ---
-name: CI
+name: Test
 'on':
   pull_request:
   push:
@@ -61,6 +61,9 @@ jobs:
 
       - name: Install test dependencies.
         run: pip3 install ansible molecule[docker] docker ansible-lint flake8
+
+      - name: Run Molecule lint tests.
+        run: molecule test
 
       - name: Run Molecule tests.
         run: molecule test -s ${{ matrix.distro }}
