@@ -1,6 +1,6 @@
 # Ansible Role: ONLYOFFICE Desktop Editors
 
-[![Build Status](https://travis-ci.org/ONLYOFFICE/ansible-role-desktopeditors.svg?branch=master)](https://travis-ci.org/ONLYOFFICE/ansible-role-desktopeditors)
+[![CI](https://github.com/ONLYOFFICE/ansible-role-desktopeditors/actions/workflows/ci.yml/badge.svg?branch=feature%2Fmolecula)](https://github.com/ONLYOFFICE/ansible-role-desktopeditors/actions/workflows/ci.yml)
 
 ## Overview
 
