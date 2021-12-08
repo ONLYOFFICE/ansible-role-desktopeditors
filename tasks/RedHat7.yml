@@ -9,7 +9,7 @@
       name: epel-release
     become: yes
 
-  - name: Install documentserver
+  - name: Install desktopeditors
     yum:
       name: "{{ package_name }}"
       update_cache: yes

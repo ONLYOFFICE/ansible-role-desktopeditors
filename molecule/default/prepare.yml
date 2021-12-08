@@ -1,0 +1,14 @@
+---
+- hosts: all
+  remote_user: root
+  become: true
+  gather_facts: true
+  tasks:
+  - name: Install dirmngr on deb
+    apt: 
+      name: "dirmngr"
+      update_cache: yes
+      state: latest
+    when: ansible_os_family == "Debian"
+    changed_when: false
+    failed_when: false

@@ -1,0 +1,51 @@
+---
+name: Test
+'on':
+  pull_request:
+  push:
+
+defaults:
+  run:
+    working-directory: 'ansible-role-desktopeditors'
+
+jobs:
+
+  molecule:
+    name: Molecule test on
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        distro:
+          - centos-8
+          - centos-7
+          - ubuntu-20.04
+          - ubuntu-18.04
+          - ubuntu-16.04
+          - debian-9
+          - debian-10
+          - debian-11
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'ansible-role-desktopeditors'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install ansible molecule[lint,docker] docker yamllint ansible-lint flake8
+
+      - name: Run lint test.
+        run: molecule test
+
+      - name: Run Molecule tests.
+        run: molecule test -s ${{ matrix.distro }}
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}

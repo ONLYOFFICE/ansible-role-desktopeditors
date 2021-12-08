@@ -10,7 +10,7 @@
       name: epel-release
     become: yes
 
-  - name: Install documentserver
+  - name: Install desktopeditors
     dnf:
       name: "{{ package_name }}"
       update_cache: yes
