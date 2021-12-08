@@ -5,6 +5,6 @@
   tasks:
     - name: Descktopeditors exist check
       stat:
-        path: /usr/bin/desktopeditors
+        path: /usr/bin/desktopeditors1
       register: result
       failed_when: result.stat.exists == false
