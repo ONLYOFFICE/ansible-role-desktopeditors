@@ -1,6 +1,6 @@
 # Ansible Role: ONLYOFFICE Desktop Editors
 
-[![CI](https://github.com/ONLYOFFICE/ansible-role-desktopeditors/actions/workflows/ci.yml/badge.svg?branch=feature%2Fmolecula)](https://github.com/ONLYOFFICE/ansible-role-desktopeditors/actions/workflows/ci.yml)
+[![Test](https://github.com/ONLYOFFICE/ansible-role-desktopeditors/actions/workflows/ci.yml/badge.svg)](https://github.com/ONLYOFFICE/ansible-role-desktopeditors/actions/workflows/ci.yml)
 
 ## Overview
 
