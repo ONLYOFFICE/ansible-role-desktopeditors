@@ -5,6 +5,6 @@
   tasks:
     - name: Descktopeditors exist check
       stat:
-        path: /bin/desktopeditors1
+        path: /bin/desktopeditors
       register: bass_result
       failed_when: bass_result.stat.exists == False
