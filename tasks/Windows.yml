@@ -1,0 +1,19 @@
+---
+
+  - name: Download and install onlyoffice, x64 case
+    win_package: 
+      path: "{{ path_x64 }}"
+      product_id: "OnlyOffice"
+      arguments:
+      - /install
+      - /norestart
+    when: ansible_architecture == "64-bit" 
+
+  - name: Download and install onlyoffice, x86 case 
+    win_package:
+      path: "{{ path_x86 }}"
+      product_id: "OnlyOffice"
+      arguments:
+      - /install
+      - /norestart
+    when: ansible_architecture == "32-bit"
