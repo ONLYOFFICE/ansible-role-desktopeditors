@@ -14,6 +14,10 @@
 - name: Include Centos install tasks
   include_tasks: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
   when: ansible_os_family == "RedHat"
+
+- name: Include Windows variables
+  include_vars: "{{ ansible_os_family }}.yml"
+  when: ansible_os_family == "Windows"
  
 - name: Include Windows install tasks
   include_tasks: "{{ ansible_os_family }}.yml"

@@ -6,7 +6,7 @@
       product_id: "OnlyOffice"
       arguments:
       - /install
-      - /norestart
+      - /verysilent
     when: ansible_architecture == "64-bit" 
 
   - name: Download and install onlyoffice, x86 case 
@@ -15,5 +15,5 @@
       product_id: "OnlyOffice"
       arguments:
       - /install
-      - /norestart
+      - /verysilent
     when: ansible_architecture == "32-bit"

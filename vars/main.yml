@@ -1,4 +1,2 @@
 ---
 package_name: onlyoffice-desktopeditors
-path_x64: "https://download.onlyoffice.com/install/desktop/editors/windows/distrib/onlyoffice/DesktopEditors_x64.exe"
-path_x86: "https://download.onlyoffice.com/install/desktop/editors/windows/distrib/onlyoffice/DesktopEditors_x86.exe"
