@@ -23,10 +23,10 @@ This Ansible Role is avaiable on [Ansible Galaxy](https://galaxy.ansible.com/ONL
 
     None.
 
-## Note:
+## Note
     
    If you use Windows like host 
-   Use the value become: false
+   use the value become: false
 
 ## License
 
