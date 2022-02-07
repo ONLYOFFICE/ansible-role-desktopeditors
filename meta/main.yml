@@ -22,6 +22,13 @@ galaxy_info:
       - bullseye
       - buster
       - stretch
+    - name: Windows
+      versions:
+      - 11
+      - 10
+      - 8.1
+      - 8
+      - 7
   galaxy_tags:
     - application
     - documents
