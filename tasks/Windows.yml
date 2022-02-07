@@ -2,7 +2,7 @@
 
   - name: Download and install OnlyOffice desktopeditors
     win_package:
-      path: "{{ onlyoffice_download_url }}"
+      path: "{{ download_url }}"
       product_id: "{{ product_id }}"
       arguments:
       - /install

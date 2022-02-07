@@ -7,17 +7,13 @@
   include_vars: "{{ ansible_os_family }}.yml"
   when: ansible_os_family == "RedHat"
 
-- name: Include Windows 32-bit variables
-  include_vars: "{{ ansible_os_family }}{{ ansible_architecture }}.yml"
+- name: Include Windows variables
+  include_vars: "{{ item }}"
+  with_items:
+    - "{{ ansible_os_family }}{{ ansible_architecture }}.yml"
+    - "{{ ansible_os_family }}.yml"
   when:
     - ansible_os_family == "Windows"
-    - ansible_architecture == "32-bit"
-
-- name: Include Windows 64-bit variables
-  include_vars: "{{ ansible_os_family }}{{ ansible_architecture }}.yml"
-  when:
-    - ansible_os_family == "Windows"
-    - ansible_architecture == "64-bit"
 
 - name: Include Debian tasks
   include_tasks: "{{ ansible_os_family }}.yml"
