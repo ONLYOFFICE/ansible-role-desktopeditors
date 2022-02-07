@@ -23,6 +23,13 @@ This Ansible Role is avaiable on [Ansible Galaxy](https://galaxy.ansible.com/ONL
 
     None.
 
+## Note
+    
+   If you use Windows like host 
+   use the value 
+	
+	become: false
+
 ## License
 
 GNU AGPL v3.0
