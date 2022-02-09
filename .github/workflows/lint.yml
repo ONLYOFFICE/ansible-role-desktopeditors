@@ -33,6 +33,10 @@ jobs:
       - name: Run lint tests.
         run: molecule lint
         env:
+          lint: |
+            set -e
+            yamllint .
+            ansible-lint .
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
