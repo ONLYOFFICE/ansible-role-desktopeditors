@@ -9,6 +9,7 @@ platforms:
     pre_build_image: true
 test_sequence:
     - dependency
+    - lint
     - cleanup
     - destroy
     - syntax
@@ -22,11 +23,10 @@ test_sequence:
     - destroy
 provisioner:
   name: ansible
+  lint: |
+    yamllint .
+    ansible-lint
   env:
     MOLECULE_NO_LOG: ${MOLECULE_NO_LOG:-true}
 verifier:
   name: ansible
-lint: |
-  set -e
-  yamllint .
-  ansible-lint .
