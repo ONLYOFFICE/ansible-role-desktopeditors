@@ -1,5 +1,5 @@
 ---
-name: lint
+name: Lint
 'on':
   pull_request:
   push:
@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        distro:
 
     steps:
       - name: Check out the codebase.
