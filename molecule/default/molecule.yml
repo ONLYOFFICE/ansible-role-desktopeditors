@@ -7,26 +7,13 @@ platforms:
   - name: "${MOLECULE_DISTRO}"
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest"
     pre_build_image: true
-test_sequence:
-    - dependency
-    - lint
-    - cleanup
-    - destroy
-    - syntax
-    - create
-    - prepare
-    - converge
-    - idempotence
-    - side_effect
-    - verify
-    - cleanup
-    - destroy
 provisioner:
   name: ansible
-  lint: |
-    yamllint .
-    ansible-lint
   env:
     MOLECULE_NO_LOG: ${MOLECULE_NO_LOG:-true}
 verifier:
   name: ansible
+lint: |
+   set -e
+   yamllint .
+   ansible-lint
