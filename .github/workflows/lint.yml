@@ -34,7 +34,10 @@ jobs:
         run: pip3 install ansible molecule[lint,docker] docker yamllint ansible-lint
 
       - name: Run lint tests.
-        run: molecule lint | set -e yamllint . ansible-lint .
+        run: molecule lint: |
+                        set -e
+                        yamllint .
+                        ansible-lint .
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
