@@ -11,7 +11,7 @@ defaults:
 jobs:
 
   molecule:
-    name: Molecule test on
+    name: Molecule test on Ubuntu-latest
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
