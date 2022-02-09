@@ -4,7 +4,7 @@
   when: ansible_os_family == "Debian"
 
 - name: Include Centos variables
-  include_vars: "{{ ansible_os_family}}.yml"
+  include_vars: "{{ ansible_os_family }}.yml"
   when: ansible_os_family == "RedHat"
 
 - name: Include Windows variables
