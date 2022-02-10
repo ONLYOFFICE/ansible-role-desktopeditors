@@ -13,3 +13,7 @@ provisioner:
     MOLECULE_NO_LOG: ${MOLECULE_NO_LOG:-true}
 verifier:
   name: ansible
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .
