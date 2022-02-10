@@ -11,7 +11,7 @@ defaults:
 jobs:
 
   molecule:
-    name: Molecule test on Ubuntu-latest
+    name: Molecule lint test on Ubuntu-latest
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -31,12 +31,8 @@ jobs:
         run: pip3 install ansible molecule[lint,docker] docker yamllint ansible-lint
 
       - name: Run lint tests.
-        run: molecule lint
+        run: molecule lint --scenario-name lint
         env:
-          lint: |
-            set -e
-            yamllint .
-            ansible-lint .
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
