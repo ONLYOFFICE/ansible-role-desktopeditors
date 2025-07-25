@@ -1,4 +1,5 @@
 skip_list:
+  - role-name
   - package-latest  # Package installs should not use latest
   - schema[meta]    # Skip meta schema validation
 exclude_paths:

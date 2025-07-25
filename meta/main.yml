@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  namespace: ONLYOFFICE
   role_name: desktopeditors
   author: "ONLYOFFICE Devops <devops@onlyoffice.com>"
   description: "ONLYOFFICE Desktop Editors is a free desktop version of online editors does not require constant connection to the internet and can work with offline files on your computer"
