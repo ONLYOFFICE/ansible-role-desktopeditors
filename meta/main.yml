@@ -2,26 +2,24 @@
 galaxy_info:
   namespace: onlyoffice
   role_name: desktopeditors
-  author: "Anton Rychenkov <anton.rychenkov@onlyoffice.com>"
+  author: "ONLYOFFICE Devops <devops@onlyoffice.com>"
   description: "ONLYOFFICE Desktop Editors is a free desktop version of online editors does not require constant connection to the internet and can work with offline files on your computer"
   company: "Ascensio System SIA"
   license: "GNU AGPL v3.0"
-  min_ansible_version: 2.3
+  min_ansible_version: "2.3"
   platforms:
     - name: EL
       versions:
-      - 8
-      - 7
+      - 9
     - name: Ubuntu
       versions:
+      - noble
+      - jammy
       - focal
-      - bionic
-      - xenial
     - name: Debian
       versions:
+      - bookworm
       - bullseye
-      - buster
-      - stretch
     - name: Windows
       versions:
       - 11

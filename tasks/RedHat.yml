@@ -1,17 +1,17 @@
 ---
   - name: Add onlyoffice repo
-    dnf:
+    ansible.builtin.dnf:
       name: "{{ onlyoffice_repo }}"
       disable_gpg_check: yes
     become: yes
 
   - name: Install epel repo
-    dnf: 
+    ansible.builtin.dnf: 
       name: epel-release
     become: yes
 
   - name: Install desktopeditors
-    dnf:
+    ansible.builtin.dnf:
       name: "{{ package_name }}"
       update_cache: yes
       state: present

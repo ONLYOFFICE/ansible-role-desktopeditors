@@ -1,21 +1,14 @@
 ---
-  - name: Create keyrings directory
-    ansible.builtin.file:
-      path: /etc/apt/keyrings
-      state: directory
-      mode: '0755'
-    become: yes
-
-  - name: Download onlyoffice gpg key
-    ansible.builtin.get_url:
-      url: "{{ gpg_key_url }}"
-      dest: "/etc/apt/keyrings/onlyoffice.asc"
-      mode: '0644'
+  - name: Add onlyoffice gpg keys
+    ansible.builtin.apt_key:
+      keyserver: "keyserver.ubuntu.com"
+      id: "CB2DE8E5"
+      state: present
     become: yes
 
   - name: Add onlyoffice repositories
     ansible.builtin.apt_repository:
-      repo: "{{ package_repo | replace('deb ', 'deb [signed-by=/etc/apt/keyrings/onlyoffice.asc] ') }}"
+      repo: "{{ package_repo }}"
       state: present
     become: yes
 

@@ -1,3 +1,4 @@
 ---
 debian_repo: "deb http://deb.debian.org/debian {{ ansible_distribution_release }} contrib"
 package_repo: "deb http://download.onlyoffice.com/repo/debian squeeze main"
+gpg_key_url: "https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE"

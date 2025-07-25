@@ -1,14 +1,14 @@
 ---
 - name: Include Debian variables
-  include_vars: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
   when: ansible_os_family == "Debian"
 
 - name: Include Centos variables
-  include_vars: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
   when: ansible_os_family == "RedHat"
 
 - name: Include Windows variables
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
   with_items:
     - "{{ ansible_os_family }}{{ ansible_architecture }}.yml"
     - "{{ ansible_os_family }}.yml"
@@ -16,13 +16,32 @@
     - ansible_os_family == "Windows"
 
 - name: Include Debian tasks
-  include_tasks: "{{ ansible_os_family }}.yml"
-  when: ansible_os_family == "Debian"
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
+  when: 
+    - ansible_os_family == "Debian"
+    - (ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int > 21) or
+      (ansible_distribution == "Debian" and ansible_distribution_major_version|int > 11) or
+      (ansible_distribution != "Ubuntu" and ansible_distribution != "Debian")
+
+- name: Include Debian Old tasks
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}Old.yml"
+  when: 
+    - ansible_os_family == "Debian"
+    - (ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int <= 21) or
+      (ansible_distribution == "Debian" and ansible_distribution_major_version|int <= 11)
+
+- name: Include Centos7 install tasks
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
+  when: 
+    - ansible_os_family == "RedHat"
+    - ansible_distribution_major_version == "7"
 
 - name: Include Centos install tasks
-  include_tasks: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
-  when: ansible_os_family == "RedHat"
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
+  when: 
+    - ansible_os_family == "RedHat"
+    - ansible_distribution_major_version|int > 7
  
 - name: Include Windows install tasks
-  include_tasks: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
   when: ansible_os_family == "Windows"

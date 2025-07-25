@@ -1,2 +1,7 @@
 skip_list:
   - package-latest  # Package installs should not use latest
+  - schema[meta]    # Skip meta schema validation
+exclude_paths:
+  - molecule/
+  - .github/
+  - tasks/RedHat7.yml
