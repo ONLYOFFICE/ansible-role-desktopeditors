@@ -1,0 +1,52 @@
+---
+- name: Create temporary directory for DMG download
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: onlyoffice
+  register: temp_dir
+
+- name: Download ONLYOFFICE Desktop Editors DMG
+  ansible.builtin.get_url:
+    url: "{{ download_url }}"
+    dest: "{{ temp_dir.path }}/ONLYOFFICE-DesktopEditors.dmg"
+    mode: '0644'
+  register: dmg_download
+
+- name: Mount DMG file
+  ansible.builtin.command:
+    cmd: "hdiutil attach {{ dmg_download.dest }} -nobrowse"
+  register: mount_result
+  changed_when: true
+
+- name: Extract mount point from hdiutil output
+  ansible.builtin.set_fact:
+    mount_point: "{{ mount_result.stdout_lines | select('match', '.*\t/.*') | list | last | regex_replace('.*\t(/.*)', '\\1') }}"
+
+- name: Find .app bundle in mounted DMG
+  ansible.builtin.find:
+    paths: "{{ mount_point }}"
+    patterns: "*.app"
+    file_type: directory
+  register: app_bundle
+
+- name: Copy ONLYOFFICE Desktop Editors to Applications
+  ansible.builtin.copy:
+    src: "{{ app_bundle.files[0].path }}/"
+    dest: "/Applications/{{ app_bundle.files[0].path | basename }}"
+    remote_src: yes
+    mode: preserve
+  become: yes
+  when: app_bundle.files | length > 0
+
+- name: Unmount DMG file
+  ansible.builtin.command:
+    cmd: "hdiutil detach '{{ mount_point }}' -quiet"
+  register: unmount_result
+  changed_when: true
+  failed_when: false
+
+- name: Clean up temporary files
+  ansible.builtin.file:
+    path: "{{ temp_dir.path }}"
+    state: absent
+  when: temp_dir.path is defined

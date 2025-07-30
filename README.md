@@ -8,7 +8,7 @@
 A role structure contains such directories as defaults, vars, tasks, files, templates, meta, handlers.
 Ansible Role has to be used within **Playbook** that serves as a mapping between hosts and roles.
 
-This Ansible Role installs and configures an open-source office suite [ONLYOFFICE Desktop Editors](https://github.com/ONLYOFFICE/DesktopEditors) on RHEL/CentOS, Debian/Ubuntu or Windows workstations.
+This Ansible Role installs and configures an open-source office suite [ONLYOFFICE Desktop Editors](https://github.com/ONLYOFFICE/DesktopEditors) on RHEL/CentOS, Debian/Ubuntu, Windows or macOS workstations.
 
 This Ansible Role is avaiable on [Ansible Galaxy](https://galaxy.ansible.com/ONLYOFFICE/desktopeditors), a repository for Ansible Roles that are available to drop directly into your Playbooks to streamline your automation projects.  
 

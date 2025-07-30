@@ -15,6 +15,14 @@
   when:
     - ansible_os_family == "Windows"
 
+- name: Include MacOS variables
+  ansible.builtin.include_vars: "{{ item }}"
+  with_items:
+    - "{{ ansible_os_family }}{{ ansible_architecture }}.yml"
+    - "{{ ansible_os_family }}.yml"
+  when:
+    - ansible_os_family == "Darwin"
+
 - name: Include Debian tasks
   ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
   when: 
@@ -45,3 +53,7 @@
 - name: Include Windows install tasks
   ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
   when: ansible_os_family == "Windows"
+
+- name: Include MacOS install tasks
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
+  when: ansible_os_family == "Darwin"

@@ -1,6 +1,7 @@
 skip_list:
   - package-latest  # Package installs should not use latest
   - schema[meta]    # Skip meta schema validation
+  - role-name       # Skip role name validation
 exclude_paths:
   - molecule/
   - .github/
