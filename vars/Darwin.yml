@@ -1,2 +1,2 @@
 ---
-download_url: "https://github.com/ONLYOFFICE/DesktopEditors/releases/latest/download/ONLYOFFICE-{{ platform }}.dmg" 
+download_url: "https://download.onlyoffice.com/install/desktop/editors/mac/{{ platform }}/distrib/ONLYOFFICEDesktopEnterprise.dmg"
